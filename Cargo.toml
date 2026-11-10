@@ -1,0 +1,21 @@
+[workspace]
+resolver = "3"
+members = ["crates/oshot-core", "crates/oshot-native", "crates/oshot-app"]
+
+[workspace.package]
+edition = "2024"
+license = "MIT"
+version = "0.0.1"
+
+[workspace.dependencies]
+# Zed's main branch, pinned. Bump on purpose only: main carries unreleased breaking changes.
+gpui = { git = "https://github.com/zed-industries/zed", rev = "b5cd310b3b54dfc659fcc06453e6358843dfe216" }
+gpui_platform = { git = "https://github.com/zed-industries/zed", rev = "b5cd310b3b54dfc659fcc06453e6358843dfe216", features = ["font-kit"] }
+gpui_apple = { git = "https://github.com/zed-industries/zed", rev = "b5cd310b3b54dfc659fcc06453e6358843dfe216" }
+
+[profile.release]
+opt-level = "s"
+lto = "fat"
+codegen-units = 1
+strip = true
+panic = "abort"

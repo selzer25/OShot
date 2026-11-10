@@ -1,0 +1,13 @@
+[package]
+name = "oshot-native"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+publish = false
+
+[dependencies]
+oshot-core = { path = "../oshot-core" }
+objc2 = "0.6"
+objc2-foundation = "0.3"
+libwebp-sys = "0.14"
+oxipng = { version = "10", default-features = false }

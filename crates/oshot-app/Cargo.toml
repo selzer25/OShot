@@ -1,0 +1,35 @@
+[package]
+name = "oshot-app"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+publish = false
+
+[[bin]]
+name = "oshot"
+path = "src/main.rs"
+
+[lib]
+name = "oshot_app"
+path = "src/lib.rs"
+
+[dependencies]
+oshot-core = { path = "../oshot-core" }
+oshot-native = { path = "../oshot-native" }
+gpui.workspace = true
+gpui_platform.workspace = true
+# Same versions gpui already builds, so these add no new code.
+image = { version = "0.25", default-features = false }
+smallvec = "1"
+lyon = "1"
+futures = "0.3"
+raw-window-handle = "0.6"
+objc2 = "0.6"
+objc2-foundation = "0.3"
+block2 = "0.6"
+
+[dev-dependencies]
+gpui = { workspace = true, features = ["test-support"] }
+gpui_platform = { workspace = true, features = ["test-support"] }
+gpui_apple.workspace = true
+image = { version = "0.25", default-features = false, features = ["png"] }
